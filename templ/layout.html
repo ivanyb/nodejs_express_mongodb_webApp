@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/bowerlib/bootstrap/dist/css/bootstrap.min.css" />
+    <!--<script src="/bowerlib/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <!--<link rel="stylesheet" href="../../statics/bowerlib/bootstrap/dist/css/bootstrap.css" />-->
+    {{{ block ("head") }}}
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-default" style="height: 50px;background-color: #2aabd2;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color: #ffffff;">
+                欢迎进入学习资源管理系统
+            </a>
+        </div>
+
+        <!--<div class="navbar-right">-->
+            <!--<a class="navbar-brand" href="#" style="color: #ffffff;">-->
+                <!--登录-->
+            <!--</a>-->
+            <!--<a class="navbar-brand" href="#" style="color: #ffffff;">-->
+                <!--注册-->
+            <!--</a>-->
+        <!--</div>-->
+
+    </div>
+
+</nav>
+
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div  class="list-group ">
+                <a href="#" class="list-group-item active">
+                    视频管理
+                </a>
+                <a href="#" class="list-group-item">视频信息管理</a>
+                <a href="#" class="list-group-item">。。。</a>
+                <a href="#" class="list-group-item">。。。</a>
+                <a href="#" class="list-group-item">。。。</a>
+                <a href="#" class="list-group-item">。。。</a>
+
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            {{{ block ("body") }}}
+        </div>
+    </div>
+</div>
+</body>
+</html>

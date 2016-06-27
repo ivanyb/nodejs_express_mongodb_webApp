@@ -1,0 +1,55 @@
+{{extend ("./layout.html")}}
+
+{{#block ("head")}}
+
+{{/block}}
+
+{{#block ("body")}}
+
+<div class="panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            {{ title }}
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="input-group">
+                    <div class="input-group-addon">姓名：</div>
+                    <input type="text" class="form-control" id="userName" placeholder="请输入姓名" >
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-success" >查找</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered">
+
+<tr>
+    <th>编号</th>
+    <th>视频名称</th>
+    <th>所属阶段</th>
+    <th>关键字</th>
+    <th>操作</th>
+</tr>
+    <tr>
+        <td>编号</td>
+        <td>视频名称</td>
+        <td>所属阶段</td>
+        <td>关键字</td>
+        <td>
+            <button type="button" class="btn btn-info btn-sm">详细</button>
+            <button type="button" class="btn btn-info btn-sm">编辑</button>
+            <button type="button" class="btn btn-danger btn-sm">删除</button>
+        </td>
+    </tr>
+
+
+    </table>
+
+{{/block}}
