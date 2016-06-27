@@ -1,5 +1,9 @@
 const path = require('path')
 
+const mongoose = require('mongoose')
+const dbUrl = 'mongodb://localhost/itcast'
+mongoose.connect(dbUrl)
+
 //1.0 导入express,和 xtemplate模板的包装框架xtpl
 const  express = require('express')
 const xtpl = require('xtpl')
@@ -7,7 +11,13 @@ const xtpl = require('xtpl')
 //2.0 创建express的application 对象
 const  app = express()
 
-//2.0 设置静态模块
+//2.0.0 加载model,一定是放在加载路由模块require('./src/routes/xxxx')之前
+require('./src/model/videoInfo')
+
+//2.0.1 加载路由对象
+const  adminRouter = require('./src/routes/adminRouter')
+
+//2.0.2 设置静态模块
 app.use(express.static(path.join(__dirname,'statics')))
 app.use(express.static(path.join(__dirname,'bowerlib')))
 
@@ -22,7 +32,9 @@ app.engine('html',xtpl.renderFile)
 // app.get('/VideoInfo',(req,res)=>{
 //     res.render('admin/index',{title:'学习资源管理'})
 // })
-app.get('/admin/videoInfo',require('./src/controllers/admin/videoInfoController'));
+// app.get('/admin/videoInfo',require('./src/controllers/admin/videoInfoController'));
+app.use('/admin',adminRouter)
+
 
 //5.0 开启web服务器的监听
 app.listen(8000,function () {

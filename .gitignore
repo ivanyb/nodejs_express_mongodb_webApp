@@ -17,3 +17,4 @@ node_modules
 bower_components
 bowerlib
 .DS_Store
+.idea
