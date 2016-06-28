@@ -8,11 +8,17 @@ mongoose.connect(dbUrl)
 const  express = require('express')
 const xtpl = require('xtpl')
 
-//2.0 创建express的application 对象
-const  app = express()
+
+//2.0 创建express的application 对象          
+const  app = express()  
 
 //2.0.0 加载model,一定是放在加载路由模块require('./src/routes/xxxx')之前
 require('./src/model/videoInfo')
+
+//加载中间件 
+//导入body-parser 实现通过req.body 获取post请求报文体中的数据
+const bodyParser = require('body-parser')
+app.use(bodyParser())
 
 //2.0.1 加载路由对象
 const  adminRouter = require('./src/routes/adminRouter')
@@ -22,8 +28,9 @@ app.use(express.static(path.join(__dirname,'statics')))
 app.use(express.static(path.join(__dirname,'bowerlib')))
 
 
+
 //3.0 设置app视图的目录和视图引擎
-app.set('views',path.join(__dirname,'views'))
+app.set('views',path.join(__dirname,'views')) 
 
 app.set('view engine','html')
 app.engine('html',xtpl.renderFile)

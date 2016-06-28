@@ -9,9 +9,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mongoose": "^4.5.2",
     "xtemplate": "^4.5.1",
     "xtpl": "^3.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ivanyb/nodejs_express_mongodb_webApp.git"
+  },
+  "homepage": "https://github.com/ivanyb/nodejs_express_mongodb_webApp"
 }

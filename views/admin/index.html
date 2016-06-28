@@ -22,10 +22,11 @@
                 </div>
             </div>
             <div class="col-md-1">
-                <button type="button" class="btn btn-success" >查找</button>
+                <button type="button" class="btn btn-success" id="query" >查找</button>
             </div>
             <div class="col-md-6 col-md-offset-1">
-                <button type="button" class="btn btn-success " >添加</button>
+                <button type="button" class="btn btn-success" data-toggle="modal"
+                        data-target="#gridSystemModal"> 添加 </button>
             </div>
         </div>
     </div>
@@ -46,8 +47,8 @@
         <td>{{this.scope}}</td>
         <td>{{this.keyword}}</td>
         <td>
-
-          <a  class="btn btn-info btn-sm" href="/admin/videoInfo/edit/{{this._id}}">编辑</a>
+            <a  class="btn btn-info btn-sm" href="/admin/videoFile/{{this._id}}">视频上传</a>
+            <a  class="btn btn-info btn-sm" href="/admin/videoInfo/edit/{{this._id}}">编辑</a>
             <a  class="btn btn-danger btn-sm" href="/admin/videoInfo/delete/{{this._id}}">删除</a>
         </td>
     </tr>
@@ -67,5 +68,7 @@
 
 
     </table>
+
+{{include ("./videoInfo_add.html") }}
 
 {{/block}}
