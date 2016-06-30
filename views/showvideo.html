@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="../../bowerlib/bootstrap/dist/css/bootstrap.css" />-->
+
+    <script src="/jquery/dist/jquery.min.js"></script>
+    
+    
+</head>
+<body style='background-color:#000;'>
+<div class="container">
+<nav class="navbar navbar-default" style="height: 50px;background-color: #2aabd2;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color: #ffffff;">
+                视频播放
+            </a>
+        </div>
+    </div>
+</nav>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+	      <video  id="video1" src="/vides/{{src}}" style="min-width:400px;min-height:400px;" controls='controls' autoplay='autoplay'>
+        </div>
+
+        <div class="col-md-4" style="min-height:500px;overflow:hidden;padding:5px;color:#fff;">
+            {{{ notedata }}}
+        </div>
+    </div>
+</div>
+</body>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</html>

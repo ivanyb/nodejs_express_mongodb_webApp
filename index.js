@@ -10,7 +10,7 @@ const xtpl = require('xtpl')
 
 
 //2.0 创建express的application 对象          
-const  app = express()  
+const  app = express()
 
 //2.0.0 加载model,一定是放在加载路由模块require('./src/routes/xxxx')之前
 require('./src/model/videoInfo')
@@ -22,15 +22,16 @@ app.use(bodyParser())
 
 //2.0.1 加载路由对象
 const  adminRouter = require('./src/routes/adminRouter')
+const forntRouter = require('./src/routes/Router')
 
 //2.0.2 设置静态模块
 app.use(express.static(path.join(__dirname,'statics')))
 app.use(express.static(path.join(__dirname,'bowerlib')))
-
+app.use(express.static(path.join(__dirname,'upload')))
 
 
 //3.0 设置app视图的目录和视图引擎
-app.set('views',path.join(__dirname,'views')) 
+app.set('views',path.join(__dirname,'views'))
 
 app.set('view engine','html')
 app.engine('html',xtpl.renderFile)
@@ -41,6 +42,7 @@ app.engine('html',xtpl.renderFile)
 // })
 // app.get('/admin/videoInfo',require('./src/controllers/admin/videoInfoController'));
 app.use('/admin',adminRouter)
+app.use('/',forntRouter)
 
 
 //5.0 开启web服务器的监听

@@ -15,12 +15,10 @@
     + post /admin/videoInfo/edit       获取post请求报文体中的数据更新到db中
     + get /admin/videoInfo/delete/:id  删除视频信息
 
-    + get /admin/videoFile/：videoInfoID  打开视频上传页面，videoInfoID表示当前视频文件属于哪个视频的
-    + post  /admin/videoFile              视频文件上传
+    + post  /admin/videoFile           视频文件上传
     
 - 2、不加/admin前缀的为前台页面
-    + get /index                           展示所有视频信息
-    + get /show:vinfoid                    展示视频下的单独视频进行播放
+    + get /showvideo/:vinfoid           展示视频下的单独视频进行播放
     
     
 ##2.0  mongodb数据库设计

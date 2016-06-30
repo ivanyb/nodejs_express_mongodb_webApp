@@ -8,7 +8,7 @@ exports.list = (req,res)=>{
 
     //查找mongodb中的videoInfos表中的所有数据
      videoInfoModel.find({},(err,data)=>{
-         if(err)
+         if(err) 
          {
              throw err;
          }
@@ -28,7 +28,7 @@ exports.addData = (req,res)=>{
     //     src : req.body.src,
     //     notedata : req.body.notedata
     // });
-
+ 
     videoInfoModel.create({
         name : req.body.name,
         scope : req.body.scope,
@@ -49,36 +49,36 @@ exports.findModel = (req,res)=>{
     let id = req.params.id;
     videoInfoModel.findOne({"_id":id},(err,data)=>{
         if(err) throw err
-        res.set({
-            "Content-Type":"application/json; charset=UTF-8"
-        });
-        res.end(data ?data.toString():"没有数据");
+        // res.set({
+        //     "Content-Type":"application/json; charset=UTF-8"
+        // });
+        // res.end(data ?data.toString():"没有数据");
+        res.render('admin/edit',data)
+       
     })
 }
 //3.0 更新数据:post请求
 exports.update = (req,res)=>{
     console.log(req.body )
-    let id = req.body.id
+    let id = req.body.vid
     let name = req.body.name
     let scope = req.body.scope
     let keyword = req.body.keyword
-    let src = req.body.src
     let notedata = req.body.notedata
 
     videoInfoModel.update({"_id":id},{
         name : name,
         scope : scope,
         keyword : keyword,
-        src : src,
         notedata : notedata
     },{},(err)=>{
         if(err) throw err
 
         res.set({
-            "Content-Type":"application/json; charset=UTF-8"
+            "Content-Type":"text/html; charset=UTF-8"
         });
-        res.end(JSON.stringify({status:1,message:"数据更新成功"}));
-        
+        // res.end(JSON.stringify({status:1,message:"数据更新成功"}));
+        res.end("<script>alert('更新成功');window.location='/admin/videoInfo'</script>");
     })
 }
 

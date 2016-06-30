@@ -29,11 +29,9 @@ adminRoute.post('/videoInfo/edit',videoInfoCtrl.update)
 adminRoute.get('/videoInfo/delete/:id',videoInfoCtrl.delete)
 
 //3.0 视频文件维护路由
-//3.0.1 打开视频上传页面
-adminRoute.get('/admin/videoFile/:videoInfoID',videoFileCtrl.upload)
-
+ 
 //3.0.2 视频上传
-adminRoute.post('/admin/videoFile',videoFileCtrl.uploadFile)
+adminRoute.post('/videoFile',videoFileCtrl.uploadFile)
 
 //3.0 将路由对象导出
 module.exports = adminRoute
