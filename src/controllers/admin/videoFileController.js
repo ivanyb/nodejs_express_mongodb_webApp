@@ -13,9 +13,9 @@ exports.uploadFile = (req,res) =>{
   form.uploadDir =path.join(__dirname,'../../../upload/vides/'); //设置文件保存路径
   form.keepExtensions = true; //true：带文件扩展名存储  false:不带扩展名存储
 
- 	   res.set({
-            "Content-Type":"text/html; charset=UTF-8"
-        });
+	   res.set({
+        "Content-Type":"text/html; charset=UTF-8"
+    });
   
     form.parse(req, function(err, fields, files) {
      
@@ -35,6 +35,6 @@ exports.uploadFile = (req,res) =>{
      });
 
     });
-    res.end('alert("上传成功");window.location="/admin/videoInfo";');
- // res.end('<script>alert("上传成功");window.location="/admin/videoInfo";</script>');
-}
+    // res.end('alert("上传成功");window.location="/admin/videoInfo";');
+ res.end('<script>alert("上传成功");window.location="/admin/videoInfo";</script>');
+}  

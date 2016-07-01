@@ -8,17 +8,16 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-   
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git@github.com:ivanyb/nodejs_express_mongodb_webApp.git"
   },
   "homepage": "https://github.com/ivanyb/nodejs_express_mongodb_webApp",
   "dependencies": {
-   "body-parser": "^1.15.2",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "express-session": "^1.13.0",
     "formidable": "^1.0.17",
     "mongoose": "^4.5.2",
     "xtemplate": "^4.5.1",
