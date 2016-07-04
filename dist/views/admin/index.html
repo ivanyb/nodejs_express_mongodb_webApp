@@ -1,0 +1,96 @@
+{{extend ("./layout.html")}}
+
+{{#block ("head")}}
+
+{{/block}}
+
+{{#block ("body")}}
+
+<div class="panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            {{ title }}
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <div class="input-group-addon">名称：</div>
+                    <input type="text" class="form-control" id="userName" placeholder="请输入视频名称" >
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-success" id="query" >查找</button>
+            </div>
+            <div class="col-md-6 col-md-offset-1">
+                <button type="button" class="btn btn-success" data-toggle="modal"
+                        data-target="#gridSystemModal"> 添加 </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th>编号</th>
+        <th>视频名称</th>
+        <th>所属阶段</th>
+        <th>关键字</th>
+        <th>路径</th>
+        <th>操作</th>
+    </tr>
+{{#each (videoArr) }}
+    <tr>
+        <td> {{xindex + 1}}</td>
+        <td> {{this.name}}</td>
+        <td> {{this.scope}}</td>
+        <td> {{this.keyword}}</td>
+        <td> {{this.src}}</td>
+        <td>
+            <a class="btn btn-info btn-sm uploadVideo"  data-toggle="modal"
+                        data-target="#upload" dataid="{{this._id}}">视频上传</a> |
+            <a class="btn btn-info btn-sm" href="/admin/videoInfo/edit/{{this._id}}">编辑</a> |
+            <a class="btn btn-danger btn-sm" href="/admin/videoInfo/delete/{{this._id}}">删除</a> |
+            <a class="btn btn-danger btn-sm" target="_bank" href="/showvideo/{{this._id}}">播放</a>
+        </td>
+    </tr>
+{{/each}}
+
+
+    <!--<tr>-->
+        <!--<td>编号</td>-->
+        <!--<td>视频名称</td>-->
+        <!--<td>所属阶段</td>-->
+        <!--<td>关键字，关键字，关键字，关键字，关键字</td>-->
+        <!--<td>-->
+            <!--<button type="button" class="btn btn-info btn-sm">维护视频信息</button>-->
+            <!--<button type="button" class="btn btn-info btn-sm">编辑</button>-->
+            <!--<button type="button" class="btn btn-danger btn-sm">删除</button>-->
+        <!--</td>-->
+    <!--</tr>-->
+
+
+    </table>
+
+    <script>
+$(function(){
+    //点击上传按钮后，将当前行的id 赋值给上传表单的id 元素
+  $(".uploadVideo").click(function(){
+    var id = $(this).attr("dataid");
+    $("#updtid").val(id);
+  });
+
+})
+    </script>
+
+<!-- 新增视频信息页面 -->
+{{include ("./videoInfo_add.html") }}
+
+<!-- 上传视频文件页面 -->
+{{include ("./upload.html") }}
+
+
+
+{{/block}}

@@ -1,0 +1,1 @@
+"use strict";var mongoose=require("mongoose"),vinfoModel=mongoose.model("videoInfo"),path=require("path");module.exports=function(o,e){var i=o.params.vinfoid;vinfoModel.findOne({_id:i},function(o,i){e.render(path.join(__dirname,"../views/showvideo"),i)})};

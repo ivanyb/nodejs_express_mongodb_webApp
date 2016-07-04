@@ -1,0 +1,1 @@
+"use strict";var express=require("express"),route=express.Router();route.get("/showvideo/:vinfoid",require("../controllers/frontController")),module.exports=route;

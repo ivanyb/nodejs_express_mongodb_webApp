@@ -1,3 +1,5 @@
+
+const path = require('path')
 const mongoose =require('mongoose')
 
 //只要当model在启动的时候有注册，这里可以直接获取到
@@ -12,7 +14,9 @@ exports.list = (req,res)=>{
          {
              throw err;
          }
-         res.render('admin/index',{title:'学习资源管理',videoArr:data})
+         // res.render('admin/index',{title:'学习资源管理',videoArr:data})
+         res.render(path.join(__dirname,'../../views/admin/index')
+            ,{title:'学习资源管理',videoArr:data})
     })
 }
 
@@ -53,7 +57,8 @@ exports.findModel = (req,res)=>{
         //     "Content-Type":"application/json; charset=UTF-8"
         // });
         // res.end(data ?data.toString():"没有数据");
-        res.render('admin/edit',data)
+        // res.render('admin/edit',data)
+          res.render(path.join(__dirname,'../../views/admin/edit'),data)
        
     })
 }

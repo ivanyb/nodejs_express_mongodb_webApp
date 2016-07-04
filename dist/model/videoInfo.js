@@ -1,0 +1,1 @@
+"use strict";var mongoose=require("mongoose"),schema=require("../mongo_schema/videoInfoSchema"),model=mongoose.model("videoInfo",schema);module.exports=model;

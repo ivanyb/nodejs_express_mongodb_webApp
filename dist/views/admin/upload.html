@@ -1,0 +1,62 @@
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="upload" >
+    <div class="modal-dialog " role="document" >
+        <div class="modal-content" >
+         <form id='uploadform' action="/admin/videoFile" class="form-horizontal" method="post" enctype="multipart/form-data">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">上传视频</h4>
+            </div>
+            <div class="modal-body">
+
+            <div class="panel-body">
+                   <input type="hidden" name="id" id="updtid">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">选择视频文件:
+                            </label>
+                            <div class="col-sm-6">
+                            <input type='file' name="mp4file">
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">上传</button>
+                <button type="button" onclick="fileUpload()" class="btn btn-primary">上传ajax</button>
+            </div>
+
+</form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+function fileUpload()
+{
+     // var formData = new FormData($("#uploadform")[0]);
+     // // console.log(formData);
+     // // 
+     // $.post('/admin/videoFile',formData,function(res){
+     //    alert(res);
+     // });
+
+    
+  var formData = new FormData($("#uploadform")[0]);
+  $.ajax({
+    url: '/admin/videoFile',
+    type: 'POST',
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function(data){
+     eval(data);
+     
+    },
+    error: function(){
+        alert("上传失败");
+    }
+  });
+}
+
+</script>

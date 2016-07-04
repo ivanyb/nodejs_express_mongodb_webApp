@@ -4,11 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon ./index.js",
+    "dev": "cross-env PORT=8000 NODE_ENV=dev npm run nodemon",
+    "prod": "cross-env PORT=9000 NODE_ENV=product npm run nodemon"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "0.0.2",
+    "gulp-uglify": "^1.5.4"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:ivanyb/nodejs_express_mongodb_webApp.git"
@@ -16,6 +26,7 @@
   "homepage": "https://github.com/ivanyb/nodejs_express_mongodb_webApp",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cross-env": "^1.0.8",
     "express": "^4.14.0",
     "express-session": "^1.13.0",
     "formidable": "^1.0.17",

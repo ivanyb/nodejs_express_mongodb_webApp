@@ -1,8 +1,12 @@
 
+// import {path} from 'path'
+var path = require('path')
+
 //打开登录页面： get /account/login
 exports.displayLoginPage = (req,res)=>{
 
-	res.render('accounts/login',{})
+	res.render(path.join(__dirname,'../../views/accounts/login'),{})
+	// res.render('accounts/login',{})
 }
 
 //处理登录逻辑 post /account/login

@@ -1,0 +1,1 @@
+"use strict";var mongoose=require("mongoose"),schema=new mongoose.Schema({name:String,scope:String,keyword:String,src:String,notedata:String});module.exports=schema;
